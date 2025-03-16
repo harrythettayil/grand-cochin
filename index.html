@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
+
     <link
       href="https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@500;600;700&display=swap"
       rel="stylesheet"
@@ -407,175 +407,196 @@
     </section>
 
     <section id="book" class="container form-section">
-        <div class="form-container">
-            <h3>Book a Table</h3>
-            <form
-              id="bookingForm"
-              action="https://formsubmit.co/your-email@example.com"
-              method="POST"
-            >       
-              <!-- Name -->
-              <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required />
-              </div>
-      
-              <!-- Phone -->
-              <div class="form-group">
-                <label for="phone">Phone:</label>
-                <input type="tel" id="phone" name="phone" required />
-              </div>
-      
-              <!-- Email -->
-              <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required />
-              </div>
-      
-              <!-- Number of People -->
-              <div class="form-group">
-                <label for="people">Number of People:</label>
-                <select id="people" name="people" required>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="6+">6+</option>
-                </select>
-              </div>
-      
-              <!-- Time -->
-              <div class="form-group">
-                <label for="time">Time:</label>
-                <select id="time" name="time" required>
-                  <option value="12:00">12:00 PM</option>
-                  <option value="13:00">1:00 PM</option>
-                  <option value="14:00">2:00 PM</option>
-                  <option value="18:00">6:00 PM</option>
-                  <option value="19:00">7:00 PM</option>
-                  <option value="20:00">8:00 PM</option>
-                </select>
-              </div>
-      
-              <!-- Date -->
-              <div class="form-group">
-                <label for="date">Date:</label>
-                <input type="date" id="date" name="date" required />
-              </div>
-      
-              <!-- Submit Button -->
-              <div class="form-group">
-                <button class="btn" type="submit" id="submitBtn">Book Now</button>
-              </div>
-            </form>
-      
-            <!-- Popup for Success -->
-            <div id="successPopup" class="popup">
-              <div class="popup-content">
-                <span class="close">&times;</span>
-                <p>🎉 Congrats! Your booking is successful.</p>
-              </div>
-            </div>
+      <div class="form-container">
+        <h3>Book a Table</h3>
+        <form
+          id="bookingForm"
+          action="https://formsubmit.co/your-email@example.com"
+          method="POST"
+        >
+          <!-- Name -->
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
           </div>
+
+          <!-- Phone -->
+          <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <!-- Number of People -->
+          <div class="form-group">
+            <label for="people">Number of People:</label>
+            <select id="people" name="people" required>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="6+">6+</option>
+            </select>
+          </div>
+
+          <!-- Time -->
+          <div class="form-group">
+            <label for="time">Time:</label>
+            <select id="time" name="time" required>
+              <option value="11:15">11:15 AM</option>
+              <option value="12:15">12:15 PM</option>
+              <option value="13:15">1:15 PM</option>
+              <option value="14:15">2:15 PM</option>
+              <option value="18:15">6:15 PM</option>
+              <option value="19:15">7:15 PM</option>
+              <option value="20:15">8:15 PM</option>
+              <option value="21:15">9:15 PM</option>
+              <option value="22:15">10:15 PM</option>
+            </select>
+          </div>
+
+          <!-- Date -->
+          <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required />
+          </div>
+
+          <!-- Submit Button -->
+          <div class="form-group">
+            <button class="btn" type="submit" id="submitBtn">Book Now</button>
+          </div>
+        </form>
+
+        <!-- Popup for Success -->
+        <div id="successPopup" class="popup">
+          <div class="popup-content">
+            <span class="close">&times;</span>
+            <p>🎉 Congrats! Your booking is successful.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="gallery-container container">
-        <h3>Gallery</h3>
-        <div class="gallery">
-            <div class="card">
-              <img src="./assets/gallery-3.jpg">
-            </div>
-            <div class="card">
-              <img src="./assets/gallery-8.jpg">
-            </div>
-            <div class="card">
-              <img src="./assets/gallery-4.jpg">
-            </div>
-            <div class="card">
-              <img src="./assets/gallery-6.jpg">
-            </div>
-            <div class="card">
-              <img src="./assets/gallery-7.jpg">
-            </div>
-            <div class="card">
-              <img src="./assets/gallery-2.jpg">
-            </div>
-    </section>
-
-    
-
-    <section class="testimonials container">
-        <h3>Tesimonials</h3>
-            <div class="bento-container">
-              <div class="bento-item large">
-                <img src="./assets/erika.jpg" alt="Client 1" class="bento-image" />
-                <p class="bento-text">"Unexpected butwonderful surprise. Despite having lived here 4 years I didn't notice this.pearl of restaurant. Food is  amazing, everyone is friendly and adorable.
-                    A very nice dinner. I will definitely come back and recommend this restaurant."</p>
-                <h4 class="bento-author">Erika Tosello</h4>
-              </div>
-              <div class="bento-item small hide-mob">
-                <img src="./assets/avatar-3.svg" alt="Client 2" class="bento-image" />
-                <p class="bento-text">"Great local Kerala food good menu friendly service good luck the local beer is great as well"</p>
-                <h4 class="bento-author">Bruce Hanley</h4>
-              </div>
-              <div class="bento-item small hide-mob">
-                <img src="./assets/laura.png" alt="Client 3" class="bento-image" />
-                <p class="bento-text">"Hidden gem. Great authentic food. Dosa was delicious and all curries our party had were great. Lovely staff and fab service as well Delighted to have found this place - will definitely return!"</p>
-                <h4 class="bento-author">Laura Bryant</h4>
-              </div>
-              <div class="bento-item medium">
-                <img src="./assets/mithra.png" alt="Client 4" class="bento-image" />
-                <p class="bento-text">"One of the best Indian restaurants I've ever been to.! Everything from the ambience, the service and especially THE FOOD was just awesome.! The manager Mr. Joseph was brilliant and took time to chat with us and make sure everything was alright even during the busy hours. It almost felt like home! Overall it's a very pleasant and welcoming place and definitely a must visit if you are in the area!"</p>
-                <h4 class="bento-author">Mithravinda Vasudevan</h4>
-              </div>
-            </div>
-      </section>
-
-      
-<section id="contact" class="footer container">
-    <div class="main-footer">
-      <div class="logoinfo" data-aos="fade-up">
-  
-        <div class="contact-details">
-          <h1>Contact Us</h1>
-          <li>
-            <img src="./assets/phone.svg"/>
-            <a href="tel:+919326048690">+91 0987654321</a>
-          </li>
-          <li>
-            <img src="./assets/mail.svg"/>
-            <a href="mailto:yourmail@gmail.com">yourmail@gmail.com</a>
-          </li>
-          <li>
-            <img src="./assets/map-pin.svg"/>
-            <a href="https://g.co/kgs/Hcd6nvU">43 Duke St, Chelmsford CM1 1JA, United Kingdom</a>
-          </li>
-      </div>
-    </div>
-    <div class="com " data-aos="fade-up">
-      <h1>Links</h1>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#book">Reservation</a></li>
-      </ul>
-    </div>
-    <div class="info" data-aos="fade-up">
-      <h1>Social Media</h1>
-      <div class="sociallogos">
-        <div class="logobox">
-          <a href="#" class="fa"><img src="./assets/facebook.svg" /></a>
-          <a href="#" class="fa"><img src="./assets/instagram.svg" /></a>
-          <a href="#" class="fa"><img src="./assets/youtube.svg" /></a>
+      <h3>Gallery</h3>
+      <div class="gallery">
+        <div class="card">
+          <img src="./assets/gallery-3.jpg" />
+        </div>
+        <div class="card">
+          <img src="./assets/gallery-8.jpg" />
+        </div>
+        <div class="card">
+          <img src="./assets/gallery-4.jpg" />
+        </div>
+        <div class="card">
+          <img src="./assets/gallery-6.jpg" />
+        </div>
+        <div class="card">
+          <img src="./assets/gallery-7.jpg" />
+        </div>
+        <div class="card">
+          <img src="./assets/gallery-2.jpg" />
         </div>
       </div>
-    </div>
-    </div>
-  <footer>&copy; <span id="year"></span> Grand Cochin. All rights reserved.</footer>
-  </section>
-    
+    </section>
+
+    <section class="testimonials container">
+      <h3>Tesimonials</h3>
+      <div class="bento-container">
+        <div class="bento-item large">
+          <img src="./assets/erika.jpg" alt="Client 1" class="bento-image" />
+          <p class="bento-text">
+            "Unexpected butwonderful surprise. Despite having lived here 4 years
+            I didn't notice this pearl of restaurant. Food is amazing, everyone
+            is friendly and adorable. A very nice dinner. I will definitely come
+            back and recommend this restaurant."
+          </p>
+          <h4 class="bento-author">Erika Tosello</h4>
+        </div>
+        <div class="bento-item small hide-mob">
+          <img src="./assets/avatar-3.svg" alt="Client 2" class="bento-image" />
+          <p class="bento-text">
+            "Great local Kerala food good menu friendly service good luck the
+            local beer is great as well"
+          </p>
+          <h4 class="bento-author">Bruce Hanley</h4>
+        </div>
+        <div class="bento-item small hide-mob">
+          <img src="./assets/laura.png" alt="Client 3" class="bento-image" />
+          <p class="bento-text">
+            "Hidden gem. Great authentic food. Dosa was delicious and all
+            curries our party had were great. Lovely staff and fab service as
+            well Delighted to have found this place - will definitely return!"
+          </p>
+          <h4 class="bento-author">Laura Bryant</h4>
+        </div>
+        <div class="bento-item medium">
+          <img src="./assets/mithra.png" alt="Client 4" class="bento-image" />
+          <p class="bento-text">
+            "One of the best Indian restaurants I've ever been to.! Everything
+            from the ambience, the service and especially THE FOOD was just
+            awesome.! The manager Mr. Joseph was brilliant and took time to chat
+            with us and make sure everything was alright even during the busy
+            hours. It almost felt like home! Overall it's a very pleasant and
+            welcoming place and definitely a must visit if you are in the area!"
+          </p>
+          <h4 class="bento-author">Mithravinda Vasudevan</h4>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="footer container">
+      <div class="main-footer">
+        <div class="logoinfo" data-aos="fade-up">
+          <div class="contact-details">
+            <h1>Contact Us</h1>
+            <li>
+              <img src="./assets/phone.svg" />
+              <a href="tel:+919326048690">+91 0987654321</a>
+            </li>
+            <li>
+              <img src="./assets/mail.svg" />
+              <a href="mailto:yourmail@gmail.com">yourmail@gmail.com</a>
+            </li>
+            <li>
+              <img src="./assets/map-pin.svg" />
+              <a href="https://g.co/kgs/Hcd6nvU"
+                >43 Duke St, Chelmsford CM1 1JA, United Kingdom</a
+              >
+            </li>
+          </div>
+        </div>
+        <div class="com" data-aos="fade-up">
+          <h1>Links</h1>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#book">Reservation</a></li>
+          </ul>
+        </div>
+        <div class="info" data-aos="fade-up">
+          <h1>Social Media</h1>
+          <div class="sociallogos">
+            <div class="logobox">
+              <a href="#" class="fa"><img src="./assets/facebook.svg" /></a>
+              <a href="#" class="fa"><img src="./assets/instagram.svg" /></a>
+              <a href="#" class="fa"><img src="./assets/youtube.svg" /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        &copy; <span id="year"></span> Grand Cochin. All rights reserved.
+      </footer>
+    </section>
 
     <script src="./main.js"></script>
   </body>
