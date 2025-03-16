@@ -313,7 +313,7 @@ input[type="date"] {
   -moz-appearance: none;
 }
 
-@supports (-webkit-touch-callout: none) {
+@supports (-webkit-touch-callout: none) or (-moz-appearance: none) {
   .hero {
     background-attachment: scroll; /* Override fixed for iOS */
   }
