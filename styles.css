@@ -291,28 +291,40 @@ p {
 
 /* Hero Section */
 .hero {
-  min-height: 100vh; /* Ensures hero section fills the viewport height */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-}
-
-.hero::before {
-  content: "";
-  position: fixed; /* Keeps the background fixed */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("./assets/hero-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  z-index: -1; /* Ensures it stays in the background */
-}
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    background-image: url("./assets/hero-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  @supports (-webkit-touch-callout: none) { 
+    .hero {
+      background-attachment: scroll; /* Override fixed for iOS */
+    }
+    
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("./assets/hero-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -1;
+    }
+  }
+  
 
 .hero-content {
   position: relative; /* Required for pseudo-element positioning */
@@ -893,6 +905,7 @@ footer a {
   .hero {
     justify-content: flex-start;
     text-align: left;
+    background-attachment: fixed;
   }
 
   .hero-content .title {
