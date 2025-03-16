@@ -1,114 +1,93 @@
-// Get all tab buttons and menu items
-const tabButtons = document.querySelectorAll(".tab-btn");
-const menuItems = document.querySelectorAll(".menu-item");
-
-// Function to show items for a specific category
-function showItemsForCategory(category) {
-  menuItems.forEach((item) => {
-    const itemCategory = item.getAttribute("data-category");
-    if (category === "all" || itemCategory === category) {
-      item.style.display = "block"; // Show item
-    } else {
-      item.style.display = "none"; // Hide item
+document.addEventListener("DOMContentLoaded", function () {
+    // Cache selectors
+    const menuLinks = document.querySelector(".navbar .menu-items");
+    const menuToggleCheckbox = document.querySelector(".navbar-container input[type='checkbox']");
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const menuItems = document.querySelectorAll(".menu-item");
+    const form = document.getElementById("bookingForm");
+    const dateInput = document.getElementById("date");
+    const successPopup = document.getElementById("successPopup");
+    const closePopup = document.querySelector(".close");
+    const submitBtn = document.getElementById("submitBtn");
+    const timeSelect = document.getElementById("time");
+    const yearElement = document.getElementById("year");
+  
+    // Close mobile navbar when a menu link is clicked (Event Delegation)
+    if (menuLinks) {
+      menuLinks.addEventListener("click", (e) => {
+        if (e.target.tagName === "A") {
+          menuToggleCheckbox.checked = false;
+        }
+      });
     }
-  });
-}
-
-// Set the default active tab (e.g., 'All')
-const defaultCategory = "appetizer"; // Change this to 'veg' or 'non-veg' if needed
-
-// Show items for the default category on page load
-showItemsForCategory(defaultCategory);
-
-// Add active class to the default tab button
-tabButtons.forEach((button) => {
-  if (button.getAttribute("data-category") === defaultCategory) {
-    button.classList.add("active");
-  }
-});
-
-// Add event listeners to tab buttons
-tabButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    // Remove active class from all buttons
-    tabButtons.forEach((btn) => btn.classList.remove("active"));
-    // Add active class to the clicked button
-    button.classList.add("active");
-
-    // Get the category to filter
-    const category = button.getAttribute("data-category");
-
-    // Show items for the selected category
-    showItemsForCategory(category);
-  });
-});
-
-// Get form and elements
-const form = document.getElementById("bookingForm");
-const dateInput = document.getElementById("date");
-const successPopup = document.getElementById("successPopup");
-const closePopup = document.querySelector(".close");
-
-// Open the calendar when clicking anywhere inside the input field
-dateInput.addEventListener("click", () => {
-  dateInput.showPicker(); // Opens the browser's native date picker
-});
-
-document.getElementById("time").addEventListener("change", function () {
-  if (this.value === "22:15") {
-    alert("⚠️ Kitchen closes at 10:30 PM.");
-  }
-});
-
-// Handle form submission
-form.addEventListener("submit", async (e) => {
-  e.preventDefault(); // Prevent default form submission
-
-  // Show "Please wait" message
-  const submitBtn = document.getElementById("submitBtn");
-  submitBtn.textContent = "Please wait...";
-  submitBtn.disabled = true;
-
-  try {
-    // Send form data to FormSubmit
-    const formData = new FormData(form);
-    const response = await fetch(form.action, {
-      method: "POST",
-      body: formData,
-      headers: {
-        Accept: "application/json",
-      },
+  
+    // Show menu items based on category
+    const showItemsForCategory = (category) => {
+      menuItems.forEach((item) => {
+        item.style.display = item.getAttribute("data-category") === category || category === "all" ? "block" : "none";
+      });
+    };
+  
+    // Set default category
+    const defaultCategory = "appetizer";
+    showItemsForCategory(defaultCategory);
+  
+    // Add active class to the clicked tab & show respective menu items
+    document.querySelector(".tabs").addEventListener("click", (e) => {
+      if (e.target.classList.contains("tab-btn")) {
+        tabButtons.forEach((btn) => btn.classList.remove("active"));
+        e.target.classList.add("active");
+        showItemsForCategory(e.target.getAttribute("data-category"));
+      }
     });
-
-    // Check if the response is successful
-    if (response.ok) {
-      // Show success popup
-      successPopup.style.display = "flex";
-      form.reset(); // Reset the form
-    } else {
-      // Show failure alert
-      alert("Failed to submit the form. Please try again.");
+  
+    // Open the calendar when clicking the date input field
+    dateInput?.addEventListener("click", () => dateInput.showPicker());
+  
+    // Show alert when selecting closing time
+    timeSelect?.addEventListener("change", function () {
+      if (this.value === "22:15") {
+        alert("⚠️ Kitchen closes at 10:30 PM.");
+      }
+    });
+  
+    // Handle form submission
+    form?.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      submitBtn.textContent = "Please wait...";
+      submitBtn.disabled = true;
+  
+      try {
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: { Accept: "application/json" },
+        });
+  
+        if (response.ok) {
+          successPopup.style.display = "flex";
+          form.reset();
+        } else {
+          alert("Failed to submit the form. Please try again.");
+        }
+      } catch {
+        alert("Failed to submit the form. Please try again.");
+      } finally {
+        submitBtn.textContent = "Book Now";
+        submitBtn.disabled = false;
+      }
+    });
+  
+    // Close the success popup when clicking close button or outside popup
+    closePopup?.addEventListener("click", () => (successPopup.style.display = "none"));
+    window.addEventListener("click", (e) => {
+      if (e.target === successPopup) successPopup.style.display = "none";
+    });
+  
+    // Set the current year dynamically
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
     }
-  } catch (error) {
-    // Show failure alert
-    alert("Failed to submit the form. Please try again.");
-  } finally {
-    // Reset the button text and enable it
-    submitBtn.textContent = "Book Now";
-    submitBtn.disabled = false;
-  }
-});
-
-// Close the success popup
-closePopup.addEventListener("click", () => {
-  successPopup.style.display = "none";
-});
-
-// Close the popup when clicking outside of it
-window.addEventListener("click", (e) => {
-  if (e.target === successPopup) {
-    successPopup.style.display = "none";
-  }
-});
-
-document.getElementById("year").textContent = new Date().getFullYear();
+  });
+  

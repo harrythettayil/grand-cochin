@@ -48,6 +48,7 @@ body {
   min-width: 300px; /* Minimum width for the container */
   margin: 0 auto; /* Center the container */
   padding: 20px; /* Add some padding on smaller screens */
+  scroll-margin-top: 56px;
 }
 
 h1,
@@ -881,6 +882,7 @@ footer a {
 @media (min-width: 1200px) {
   .container {
     padding: 80px; /* Even more padding on very large screens */
+    scroll-margin-top: 24px;
   }
 
   h1 {
