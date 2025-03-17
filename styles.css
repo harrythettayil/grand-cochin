@@ -388,7 +388,7 @@ input[type="date"] {
 }
 
 .about-us-image {
-  width: 100%;
+  width: 50%;
   border-radius: 8px;
 }
 
@@ -976,6 +976,10 @@ footer a {
   .about-us-text,
   .about-us-images {
     width: 50%;
+  }
+
+  .about-us-image {
+    width: 100%;
   }
 
   .gallery {
