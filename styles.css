@@ -479,6 +479,7 @@ input[type="date"] {
   font-weight: bold;
   color: var(--primary-color);
   margin-top: 10px;
+  margin-left: 16px;
 }
 
 .item {
