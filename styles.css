@@ -385,11 +385,12 @@ input[type="date"] {
 .about-us-images {
   gap: 16px;
   max-width: 100%;
+  justify-content: center;
 }
 
 .about-us-image {
   border-radius: 8px;
-  max-width: 50%;
+  max-width: 45%;
 }
 
 .about-us h3 {
