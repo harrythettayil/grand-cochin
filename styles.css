@@ -387,7 +387,9 @@ input[type="date"] {
 }
 
 .about-us-image {
-  width: 100%;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
   border-radius: 8px;
 }
 
@@ -542,6 +544,7 @@ input[type="date"] {
   border-radius: 5px;
   font-size: 16px;
   background: var(--white);
+  height: 40px;
 }
 
 .form-group input:focus {
