@@ -384,14 +384,12 @@ input[type="date"] {
 
 .about-us-images {
   gap: 16px;
-  width: 100%;
   max-width: 100%;
 }
 
 .about-us-image {
-  width: 50%;
-  max-width: 50%;
   border-radius: 8px;
+  max-width: 50%;
 }
 
 .about-us h3 {
@@ -976,12 +974,10 @@ footer a {
   .about-us-text,
   .about-us-images {
     width: 50%;
-    max-width: 50%;
   }
 
   .about-us-image {
     width: 100%;
-    max-width: 100%;
   }
 
   .gallery {
