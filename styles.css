@@ -772,8 +772,9 @@ footer a {
   padding: 8px 0;
 }
 
-.logobox{
-    gap: 16px;
+.logobox {
+  gap: 16px;
+  justify-content: center;
 }
 
 .sociallogos .logobox img {
@@ -1063,7 +1064,7 @@ footer a {
     padding: 15px 0;
   }
 
-  .contact-details li {
+  .contact-details li, .logobox {
     justify-content: flex-start;
   }
 }
