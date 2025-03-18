@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       
         const responseText = await response.text(); // Read response as text
-        console.log("Server Response:", responseText); // Log for debugging
+        // console.log("Server Response:", responseText); // Log for debugging
       
         if (response.ok) {
           successPopup.style.display = "flex";
