@@ -63,22 +63,26 @@ document.addEventListener("DOMContentLoaded", function () {
     submitBtn.disabled = true;
 
     try {
-      const formData = new FormData(form);
-      const response = await fetch(form.action, {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
-      });
-
-      if (response.ok) {
-        successPopup.style.display = "flex";
-        form.reset();
-      } else {
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: { Accept: "application/json" },
+        });
+      
+        const responseText = await response.text(); // Read response as text
+        console.log("Server Response:", responseText); // Log for debugging
+      
+        if (response.ok) {
+          successPopup.style.display = "flex";
+          form.reset();
+        } else {
+          alert(`Failed to submit the form. Server said: ${responseText}`);
+        }
+      } catch (error) {
+        console.error("Fetch Error:", error);
         alert("Failed to submit the form. Please try again.");
-      }
-    } catch {
-      alert("Failed to submit the form. Please try again.");
-    } finally {
+      } finally {
       submitBtn.textContent = "Book Now";
       submitBtn.disabled = false;
     }
