@@ -58,31 +58,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Handle form submission
   form?.addEventListener("submit", async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent default form submission
     submitBtn.textContent = "Please wait...";
     submitBtn.disabled = true;
 
     try {
-        const formData = new FormData(form);
-        const response = await fetch(form.action, {
-          method: "POST",
-          body: formData,
-          headers: { Accept: "application/json" },
-        });
-      
-        const responseText = await response.text(); // Read response as text
-        // console.log("Server Response:", responseText); // Log for debugging
-      
-        if (response.ok) {
-          successPopup.style.display = "flex";
-          form.reset();
-        } else {
-          alert(`Failed to submit the form. Server said: ${responseText}`);
-        }
-      } catch (error) {
-        console.error("Fetch Error:", error);
-        alert("Failed to submit the form. Please try again.");
-      } finally {
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" }, // Even if FormSubmit ignores this
+      });
+
+      //   console.log("Response Type:", response.type); // Debugging
+      //   console.log("Status Code:", response.status); // Debugging
+
+      if (response.ok) {
+        // Form submission was successful
+        successPopup.style.display = "flex";
+        form.reset();
+      } else {
+        alert("Failed to submit. Please try again.");
+      }
+    } catch (error) {
+      console.error("Fetch Error:", error);
+      alert("Failed to submit. Please try again.");
+    } finally {
       submitBtn.textContent = "Book Now";
       submitBtn.disabled = false;
     }
