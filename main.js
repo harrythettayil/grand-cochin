@@ -6,11 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   const tabButtons = document.querySelectorAll(".tab-btn");
   const menuItems = document.querySelectorAll(".menu-item");
-  const form = document.getElementById("bookingForm");
   const dateInput = document.getElementById("date");
-  const successPopup = document.getElementById("successPopup");
-  const closePopup = document.querySelector(".close");
-  const submitBtn = document.getElementById("submitBtn");
   const timeSelect = document.getElementById("time");
   const yearElement = document.getElementById("year");
 
@@ -54,48 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (this.value === "22:15") {
       alert("⚠️ Kitchen closes at 10:30 PM.");
     }
-  });
-
-  // Handle form submission
-  form?.addEventListener("submit", async (e) => {
-    e.preventDefault(); // Prevent default form submission
-    submitBtn.textContent = "Please wait...";
-    submitBtn.disabled = true;
-
-    try {
-      const formData = new FormData(form);
-      const response = await fetch(form.action, {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" }, // Even if FormSubmit ignores this
-      });
-
-      //   console.log("Response Type:", response.type); // Debugging
-      //   console.log("Status Code:", response.status); // Debugging
-
-      if (response.ok) {
-        // Form submission was successful
-        successPopup.style.display = "flex";
-        form.reset();
-      } else {
-        alert("Failed to submit. Please try again.");
-      }
-    } catch (error) {
-      console.error("Fetch Error:", error);
-      alert("Failed to submit. Please try again.");
-    } finally {
-      submitBtn.textContent = "Book Now";
-      submitBtn.disabled = false;
-    }
-  });
-
-  // Close the success popup when clicking close button or outside popup
-  closePopup?.addEventListener(
-    "click",
-    () => (successPopup.style.display = "none")
-  );
-  window.addEventListener("click", (e) => {
-    if (e.target === successPopup) successPopup.style.display = "none";
   });
 
   // Set the current year dynamically
