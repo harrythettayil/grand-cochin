@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="icon" type="image/svg+xml" href="./assets/plate.svg">
+    <link rel="icon" type="image/svg+xml" href="./assets/plate.svg" />
     <link
       href="https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@500;600;700&display=swap"
       rel="stylesheet"
@@ -849,13 +849,18 @@
         <h3>Book a Table</h3>
         <form
           id="bookingForm"
-          action="https://formsubmit.co/f51438d67ccd8e507ba6bf1abd1c154d"
+          action="https://api.web3forms.com/submit"
           method="POST"
         >
+          <input
+            type="hidden"
+            name="access_key"
+            value="f9b829e1-c386-49a9-af20-74515bcb6da7"
+          />
+          <input type="hidden" name="captcha" value="false" />
+          <input type="hidden" name="subject" value="New Booking!" />
           <div class="form-grid">
             <!-- Left Column -->
-            <input type="hidden" name="_subject" value="New Booking!">
-
             <div class="form-group">
               <label for="name">Name:</label>
               <input type="text" id="name" name="name" required />
@@ -907,10 +912,16 @@
 
             <!-- Full-width button -->
             <div class="form-group full-width">
-              <button class="btn" type="submit" id="submitBtn">Book Table</button>
+              <button class="btn" type="submit" id="submitBtn">
+                Book Table
+              </button>
             </div>
           </div>
         </form>
+        <div id="popup" class="popup">
+          <p>Table booked successfully! 🎉</p>
+          <button class="btn" id="closePopup">OK</button>
+        </div>
       </div>
     </section>
 
@@ -1064,10 +1075,16 @@
           <h1>Social Media</h1>
           <div class="sociallogos">
             <div class="logobox d-flex">
-              <a target="_blank" href="https://www.facebook.com/share/165akHhFpY/?mibextid=wwXIfr" class="fa"
+              <a
+                target="_blank"
+                href="https://www.facebook.com/share/165akHhFpY/?mibextid=wwXIfr"
+                class="fa"
                 ><img src="./assets/facebook.svg" alt="facebook"
               /></a>
-              <a target="_blank" href="https://www.instagram.com/grandcochinchelmsford?igsh=MWVoajdmaWlpZmFtag==" class="fa"
+              <a
+                target="_blank"
+                href="https://www.instagram.com/grandcochinchelmsford?igsh=MWVoajdmaWlpZmFtag=="
+                class="fa"
                 ><img src="./assets/instagram.svg" alt="instagram"
               /></a>
             </div>
@@ -1075,8 +1092,11 @@
         </div>
       </div>
       <footer>
-        &copy; <span id="year"></span> Grand Cochin. All rights reserved.<br/>
-        Developed by <a target="_blank" class="dev-link" href="https://www.otnainfotech.com">Otna Infotech</a>
+        &copy; <span id="year"></span> Grand Cochin. All rights reserved.<br />
+        Developed by
+        <a target="_blank" class="dev-link" href="https://www.otnainfotech.com"
+          >Otna Infotech</a
+        >
       </footer>
     </section>
 

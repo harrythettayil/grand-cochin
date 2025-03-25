@@ -9,8 +9,8 @@
   --font-weight-bold: 700;
 }
 
-.dev-link{
-    color: var(--secondary-color);
+.dev-link {
+  color: var(--secondary-color);
 }
 
 /* Hide logo when menu is open on small screens */
@@ -463,8 +463,6 @@ input[type="date"] {
   justify-content: space-between;
 }
 
-
-
 .menu-item p {
   font-size: 14px;
   opacity: 0.8;
@@ -551,29 +549,21 @@ input[type="date"] {
 .popup {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  justify-content: center;
-  align-items: center;
-}
-
-.popup-content {
-  background: #fff;
-  padding: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   text-align: center;
-  position: relative;
+  z-index: 1000;
+  width: 90%;
 }
 
-.close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 20px;
-  cursor: pointer;
+.popup .btn {
+  margin-top: 8px;
+  width: unset;
 }
 
 .gallery-container {
@@ -812,6 +802,10 @@ footer a {
 
   .card:nth-child(6) {
     grid-area: 2 / 2 / span 1 / span 2;
+  }
+
+  .popup {
+    width: unset;
   }
 }
 

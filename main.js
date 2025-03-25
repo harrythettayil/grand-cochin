@@ -9,6 +9,59 @@ document.addEventListener("DOMContentLoaded", function () {
   const dateInput = document.getElementById("date");
   const timeSelect = document.getElementById("time");
   const yearElement = document.getElementById("year");
+  const form = document.getElementById("bookingForm");
+  const popup = document.getElementById("popup");
+  const submitButton = document.getElementById("submitBtn");
+  const closePopupButton = document.getElementById("closePopup");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Disable button and change text
+    submitButton.disabled = true;
+    submitButton.textContent = "Please wait...";
+
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: json,
+    })
+      .then(async (response) => {
+        let json = await response.json();
+        if (response.status == 200) {
+          showPopup();
+        } else {
+          alert(json.message);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Something went wrong!");
+      })
+      .finally(() => {
+        form.reset();
+        submitButton.disabled = false;
+        submitButton.textContent = "Send";
+      });
+  });
+
+  function showPopup() {
+    popup.style.display = "block";
+  }
+
+  function closePopup() {
+    popup.style.display = "none";
+  }
+
+  // Fix: Ensure the popup closes when clicking "OK"
+  closePopupButton.addEventListener("click", closePopup);
 
   // Close mobile navbar when a menu link is clicked (Event Delegation)
   if (menuLinks) {
