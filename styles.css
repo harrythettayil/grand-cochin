@@ -376,7 +376,7 @@ input[type="date"] {
 }
 
 .about-us {
-  background-color: var(--secondary-color);
+  background-color:rgba(240, 165, 0, 0.5);
   color: var(--primary-color);
   text-align: center;
 }
@@ -486,7 +486,7 @@ input[type="date"] {
 }
 
 .form-section {
-  background-color: var(--secondary-color);
+  background-color:rgba(240, 165, 0, 0.5);
   color: var(--primary-color);
 }
 
@@ -620,7 +620,7 @@ input[type="date"] {
 
 .testimonials {
   color: var(--primary-color);
-  background-color: var(--secondary-color);
+  background-color:rgba(240, 165, 0, 0.5);
 }
 
 .testimonials h3 {
