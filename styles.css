@@ -457,7 +457,6 @@ input[type="date"] {
   text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 100%;
-  border: 0.1px solid var(--forth-color);
 }
 
 .item.d-flex {
